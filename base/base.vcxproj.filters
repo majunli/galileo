@@ -6,8 +6,16 @@
     <ClInclude Include="basetypes.h" />
     <ClInclude Include="extendable_packet.h" />
     <ClInclude Include="logging.h" />
+    <ClInclude Include="http\client.h">
+      <Filter>http</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="logging.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="http">
+      <UniqueIdentifier>{d8c97697-f9ec-4e34-a641-cdf8fa08eb4d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

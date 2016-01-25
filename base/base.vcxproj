@@ -14,6 +14,7 @@
     <ClInclude Include="basetypes.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="extendable_packet.h" />
+    <ClInclude Include="http\client.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="misc.h" />
   </ItemGroup>
