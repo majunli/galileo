@@ -19,6 +19,7 @@
     <ClInclude Include="misc.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="http\client.cpp" />
     <ClCompile Include="logging.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -5,7 +5,13 @@
 #include "../extendable_packet.h"
 #include <vector>
 
-class CURL;
+#ifdef  __cplusplus
+extern "C" {
+#endif
+typedef void CURL;
+#ifdef  __cplusplus
+}
+#endif
 
 namespace http {
 
@@ -14,7 +20,7 @@ class client {
 public:
   typedef extendable_packet<true, uint32_t, 64U, false> body_t;
 
-  client();
+  explicit client(const char *user_agent);
   ~client();
 
   // 设置默认的 User-Agent
@@ -44,16 +50,16 @@ public:
   const char *current_url() const;
 
   // 返回响应数据
-  body_t *body() const { return body_; }
+  body_t body() const { return body_; }
 
 private:
   std::vector<std::string> headers_;
   CURL *curl_;
-  body_t *body_;
+  body_t body_;
 
   DISALLOW_COPY_AND_ASSIGN(client);
 };
 
-}
+} // namespace http
 
 #endif // !__GALILEO_BASE_HTTP_CLIENT_H__
