@@ -20,10 +20,7 @@ public:
     , capacity_(0)
     , read_offset_(sizeof(size_type)) {
     resize(alloc_unit);
-    if (caluate_header_size)
-      header_->size = little_endian ? size_type(sizeof(size_type)) : swap_bytes(size_type(sizeof(size_type)));
-    else
-      header_->size = 0;
+    initlize_header();
   }
 
   extendable_packet(const extendable_packet &other)
@@ -63,6 +60,12 @@ public:
     std::swap(read_offset_, other.read_offset_);
     std::swap(header_, other.header_);
     return *this;
+  }
+
+  void clear() {
+    initlize_header();
+    capacity_ = 0;
+    read_offset_ = sizeof(size_type);
   }
 
   // 返回数据包指针
@@ -183,6 +186,13 @@ private:
     }
   };
 
+  void initlize_header() {
+    if (caluate_header_size)
+      header_->size = little_endian ? size_type(sizeof(size_type)) : swap_bytes(size_type(sizeof(size_type)));
+    else
+      header_->size = 0;
+  }
+
   bool resize(uint32_t new_capacity) {
     new_capacity = ConstantAligner<alloc_unit>::align(uint32_t(new_capacity));
 
@@ -194,7 +204,6 @@ private:
     capacity_ = new_capacity;
     return true;
   }
-
 
   char* get_pointer_for_write(uint32_t length) {
     uint32_t offset = size();
