@@ -4,5 +4,10 @@
     <ClInclude Include="misc.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="basetypes.h" />
+    <ClInclude Include="extendable_packet.h" />
+    <ClInclude Include="logging.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="logging.cpp" />
   </ItemGroup>
 </Project>

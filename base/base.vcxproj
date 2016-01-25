@@ -13,7 +13,12 @@
   <ItemGroup>
     <ClInclude Include="basetypes.h" />
     <ClInclude Include="config.h" />
+    <ClInclude Include="extendable_packet.h" />
+    <ClInclude Include="logging.h" />
     <ClInclude Include="misc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="logging.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AC380FEC-85E7-4608-91A3-5C874B116C48}</ProjectGuid>
